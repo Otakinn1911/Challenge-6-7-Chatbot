@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="title">Simple Online Chatbot</div>
+        <div class="title">Chatbot Jeroen</div>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="msg-header">
-                    <p>Hello there, how can I help you?</p>
+                    <p>Hallo! Hoe kan ik u helpen?</p>
                 </div>
             </div>
         </div>
@@ -52,6 +52,47 @@
             });
         });
     </script>
-    
+
+    <?php
+
+if(isset($_POST['submit'])){
+
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$from = $_POST['email'];
+$to = "otakinnboi@gmail.com";
+$subject = "Contact formulier verzending";
+$message = $firstname . " " . $lastname . " wrote the following:" . "\n\n" . $_POST['message'];
+
+$headers = "From:" . $from;
+if (mail($to,$subject,$message,$headers)){ 
+?><div class="mailsentreply"> <?php echo "Mail Sent. Thank you " . $firstname . ", we will contact you shortly.";
+} else {
+?></div><div class="mailsentreply"> <?php echo "Sorry, something went wrong.";
+}}
+
+?> </div>
+
+
+<Form method="POST" class="contactform">
+
+    <p class="contactopnemen">Wilt u contact opnemen met ons? <br> Stuur ons hier een e-mail.</p>
+
+    <div class="behindinputfields">
+
+        <input type="text" name="firstname" placeholder="Voornaam" class="contactformfields"> <br>
+
+        <input type="text" name="lastname" placeholder="Achternaam" class="contactformfields"> <br>
+
+        <input type="text" name="email" placeholder="E-mail" class="contactformfields"> <br>
+
+        <input type="text" name="message" label="Schrijf hier uw bericht" class="ContactMessageField"> <br>
+
+        <input type="submit" placeholder="Versturen" name="submit" class="submitbutton">
+        
+    </div>
+
+</form>
+
 </body>
 </html>
