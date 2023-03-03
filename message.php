@@ -18,6 +18,7 @@ if(mysqli_num_rows($run_query) > 0){
     echo $replay;
 }else{
     echo "Sorry, ik begrijp het even niet! u kunt een E-mail sturen naar de klantenservice hier naast";
+    mysqli_query($conn, "INSERT INTO errors (messages) VALUES ('$getMesg')");
 }
 
 ?>

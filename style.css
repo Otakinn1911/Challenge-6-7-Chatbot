@@ -12,6 +12,10 @@ html,body{
     place-items: center;
 }
 
+p{
+word-wrap:break-word;
+}
+
 ::selection{
     color: #fff;
     background: #007bff;
@@ -83,7 +87,6 @@ html,body{
     border-radius: 10px;
     padding: 8px 10px;
     font-size: 14px;
-    word-break: break-all;
 }
 .form .user-inbox .msg-header p{
     color: #333;
